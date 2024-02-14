@@ -1,0 +1,24 @@
+[tool.poetry]
+name = "quantization-notes"
+version = "0.1.0"
+description = ""
+authors = ["Ankush Patel <ap@ankushp.com>"]
+license = "MIT"
+readme = "README.md"
+packages = [{include = "quantization_notes"}]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+numpy = "^1.26.4"
+torch = "^2.2.0"
+torchvision = "^0.17.0"
+matplotlib = "^3.8.2"
+tqdm = "^4.66.2"
+
+[tool.poetry.group.dev.dependencies]
+ruff = "^0.2.1"
+black = {extras = ["jupyter"], version = "^24.2.0"}
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
