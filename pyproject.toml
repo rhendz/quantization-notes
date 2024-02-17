@@ -1,11 +1,10 @@
 [tool.poetry]
-name = "quantization-notes"
+name = "quantization_notes_project"
 version = "0.1.0"
 description = ""
 authors = ["Ankush Patel <ap@ankushp.com>"]
 license = "MIT"
 readme = "README.md"
-packages = [{include = "quantization_notes"}]
 
 [tool.poetry.dependencies]
 python = "^3.10"
