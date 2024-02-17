@@ -1,6 +1,18 @@
 import numpy as np
 import matplotlib.pyplot as plt
-import os
+
+
+def format_float(value, precision=3):
+    """
+    Format a floating-point number to show significant digits
+    while removing trailing zeroes after the decimal point.
+    """
+    formatted_value = f"{value:.{precision}f}"  # Format with fixed-point representation
+    if "." in formatted_value:
+        formatted_value = formatted_value.rstrip("0").rstrip(
+            "."
+        )  # Remove trailing zeroes and decimal point if it's the last character
+    return formatted_value
 
 
 def plot_table(data, filename, cmap_background, grid_color, text_color):
@@ -9,15 +21,13 @@ def plot_table(data, filename, cmap_background, grid_color, text_color):
 
     # Plot the table with uniform background color for all cells
     plt.figure(figsize=(rows, columns))
-    plt.imshow(
-        [[1]], cmap=cmap_background, aspect="auto", extent=(0, columns, 0, rows)
-    )  # Uniform background color
+    plt.imshow([[1]], cmap=cmap_background, aspect="auto", extent=(0, columns, 0, rows))
 
     # Draw gridlines
     for i in range(1, rows + 1):
-        plt.axhline(y=i, color=grid_color, linewidth=0.5)  # Horizontal lines
+        plt.axhline(y=i, color=grid_color, linewidth=1)  # Horizontal lines
     for j in range(1, columns + 1):
-        plt.axvline(x=j, color=grid_color, linewidth=0.5)  # Vertical lines
+        plt.axvline(x=j, color=grid_color, linewidth=1)  # Vertical lines
 
     # Display numbers in the cells with specified text color
     for i in range(rows):
@@ -26,11 +36,13 @@ def plot_table(data, filename, cmap_background, grid_color, text_color):
             plt.text(
                 j + 0.5,
                 i + 0.5,
-                f"{cell_value:2.3f}",
+                format_float(cell_value),
                 ha="center",
                 va="center",
                 color=text_color,
             )  # Setting text color
+
+    plt.gca().invert_yaxis()  # Invert y-axis to start from top-left
 
     # Hide axes
     plt.axis("off")
@@ -39,17 +51,3 @@ def plot_table(data, filename, cmap_background, grid_color, text_color):
     plt.savefig(filename, bbox_inches="tight", pad_inches=0)
 
     plt.show()
-
-
-# os.makedirs("output", exist_ok=True)
-
-# # Example usage
-# # data = np.random.uniform(-1000, 1000, size=(3, 3))  # Random data
-# data = np.array(
-#     [
-#         [673.46100787, 65.88205512, 139.08433858],
-#         [929.669, -695.42169291, -849.14648819],
-#         [505.09575591, 21.96068504, -292.80913386],
-#     ]
-# )
-# plot_table(data, "output/random-table.png", "Oranges", "black", "black")
