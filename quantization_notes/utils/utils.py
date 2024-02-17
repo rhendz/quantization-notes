@@ -41,15 +41,15 @@ def plot_table(data, filename, cmap_background, grid_color, text_color):
     plt.show()
 
 
-os.makedirs("output", exist_ok=True)
+# os.makedirs("output", exist_ok=True)
 
-# Example usage
-# data = np.random.uniform(-1000, 1000, size=(3, 3))  # Random data
-data = np.array(
-    [
-        [673.46100787, 65.88205512, 139.08433858],
-        [929.669, -695.42169291, -849.14648819],
-        [505.09575591, 21.96068504, -292.80913386],
-    ]
-)
-plot_table(data, "output/random-table.png", "Oranges", "black", "black")
+# # Example usage
+# # data = np.random.uniform(-1000, 1000, size=(3, 3))  # Random data
+# data = np.array(
+#     [
+#         [673.46100787, 65.88205512, 139.08433858],
+#         [929.669, -695.42169291, -849.14648819],
+#         [505.09575591, 21.96068504, -292.80913386],
+#     ]
+# )
+# plot_table(data, "output/random-table.png", "Oranges", "black", "black")

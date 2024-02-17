@@ -1,10 +1,11 @@
 [tool.poetry]
-name = "quantization_notes_project"
+name = "quantization-notes"
 version = "0.1.0"
-description = ""
+description = "machine learning notes on quantization"
 authors = ["Ankush Patel <ap@ankushp.com>"]
 license = "MIT"
 readme = "README.md"
+packages = [{include = "quantization_notes"}]
 
 [tool.poetry.dependencies]
 python = "^3.10"
@@ -18,6 +19,7 @@ pandas = "^2.2.0"
 [tool.poetry.group.dev.dependencies]
 ruff = "^0.2.1"
 black = {extras = ["jupyter"], version = "^24.2.0"}
+jupyter = "^1.0.0"
 
 [build-system]
 requires = ["poetry-core"]
